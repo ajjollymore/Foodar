@@ -1,5 +1,5 @@
 {
-  "name": "nodejs-express-mysql",
+  "name": "Foodar API",
   "version": "1.0.0",
   "description": "Node.js Restful CRUD API with Node.js, Express and MySQL",
   "main": "server.js",
