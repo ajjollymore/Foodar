@@ -12,7 +12,7 @@
     "mysql",
     "restapi"
   ],
-  "author": "A Jollymore",
+  "author": "Foodar Team",
   "license": "",
   "dependencies": {
     "cors": "^2.8.5",

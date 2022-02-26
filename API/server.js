@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "FOODAR" });
 });
 
 require("./app/routes/routes.js")(app);
