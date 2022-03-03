@@ -21,3 +21,7 @@ npm install express cors mysql
                 password varchar(255)
             );
 <--------------------------------------------------------->
+
+### git add (filename)
+### git commit -m "message"
+### git push
