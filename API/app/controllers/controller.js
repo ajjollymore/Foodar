@@ -120,3 +120,14 @@ exports.deleteAll = (req, res) => {
     else res.send({ message: `All Users were deleted successfully!` });
   });
 };
+
+//verify a user is in the database
+exports.prove = (req,res) => {
+  User.verify(new User(req.body),(err,data) => {
+    if(err){
+      res.status(404).send({message: "Username and password don't match"});
+    }else{
+      res.send(data);
+    }
+  });
+};

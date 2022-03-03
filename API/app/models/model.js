@@ -106,7 +106,7 @@ User.removeAll = result => {
   sql.query("DELETE FROM users", (err, res) => {
     if (err) {
       console.log("error: ", err);
-      result(null, err);
+      result(err,null);
       return;
     }
 
@@ -114,5 +114,15 @@ User.removeAll = result => {
     result(null, res);
   });
 };
-
+User.verify = (user, result) => {
+  sql.query(`SELECT * FROM users WHERE name = "${user.name}" AND password = "${user.password}"`, (err,res) =>{
+  if(err){
+    if(!err.length){
+      result({isUser: "false"},null);
+    }
+    return;
+  }
+  result(null, {isUser: "true"});
+  });
+};
 module.exports = User;

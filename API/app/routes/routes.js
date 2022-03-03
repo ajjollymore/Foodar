@@ -24,5 +24,8 @@ module.exports = app => {
   // Delete all Users
   router.delete("/users", users.deleteAll);
 
+  //verify a user is in the db
+  router.post("/users/verify", users.prove);
+
   app.use('/api', router);
 };
