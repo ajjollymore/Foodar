@@ -22,6 +22,11 @@ npm install express cors mysql
             );
             ALTER TABLE users CHANGE password password VARCHAR(255) BINARY NOT NULL;
 <--------------------------------------------------------->
+### React Native Installation:
+     - https://reactnative.dev/docs/environment-setup
+     - watch this vid from 6:05 for a walkthrough: https://www.youtube.com/watch?v=oorfevovPWw&ab_channel=notJust%E2%80%A4dev 
+          -if: 'choco' is not recognized as an internal or external command, operable program or batch file.
+          - use most upvoted answer from: https://stackoverflow.com/questions/47861537/choco-command-not-recognized-when-run-as-administrator-on-windows
 
 ### git add (filename)
 ### git commit -m "message"
