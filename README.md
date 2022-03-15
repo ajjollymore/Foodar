@@ -20,6 +20,7 @@ npm install express cors mysql
                 name varchar(255) NOT NULL,
                 password varchar(255)
             );
+            ALTER TABLE users CHANGE password password VARCHAR(255) BINARY NOT NULL;
 <--------------------------------------------------------->
 
 ### git add (filename)
