@@ -2,7 +2,7 @@
   when a request is made it gets routed to a different function in controller.js
 */
 module.exports = app => {
-  const users = require("../controllers/controller.js");
+  const users = require("../controllers/user.controller.js");
 
   var router = require("express").Router();
 

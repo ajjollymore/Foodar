@@ -91,7 +91,7 @@ User.remove = (id, result) => {
       return;
     }
 
-    if (res.affectedRows == 0) {
+    if (res.length) {
       // not found User with the id
       result({ kind: "not_found" }, null);
       return;
@@ -116,12 +116,11 @@ User.removeAll = result => {
 };
 User.verify = (user, result) => {
   sql.query(`SELECT * FROM users WHERE name = "${user.name}" AND password = "${user.password}"`, (err,res) =>{
-  if(err){
-    if(!err.length){
+    console.log(err);
+    if(!res.length){
       result({isUser: "false"},null);
+      return;
     }
-    return;
-  }
   result(null, {isUser: "true"});
   });
 };

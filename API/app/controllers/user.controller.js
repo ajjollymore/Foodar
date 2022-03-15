@@ -1,7 +1,7 @@
 /*
 defines how HTTP requests from routes.js should be interpreted
 */
-const User = require("../models/model.js");
+const User = require("../models/user.model.js");
 // Create and Save a new User
 exports.create = (req, res) => {
   // Validate request
@@ -125,9 +125,8 @@ exports.deleteAll = (req, res) => {
 exports.prove = (req,res) => {
   User.verify(new User(req.body),(err,data) => {
     if(err){
-      res.status(404).send({message: "Username and password don't match"});
-    }else{
+      res.send(err);
+    }else
       res.send(data);
-    }
   });
 };
