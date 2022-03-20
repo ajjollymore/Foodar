@@ -5,23 +5,44 @@
 *
 *
 */
-import React from 'react';
+import React, {useState} from 'react';
 import { Text, View, StyleSheet,SafeAreaView,TextInput, Image, TouchableOpacity} from 'react-native';
+import axios from 'axios';
+const baseUrl = 'https://10.0.2.2:3000';
 const App = () => {
+  const [name, onChangeName] = useState("");
+  const [password, onChangePassword] = useState("");
+  
+  const fetchUser = async () => {
+    console.log([name, password]);
+    axios.post(`http://10.0.2.2:3000/api/users/verify`, {
+    name: name,
+    password: password
+    }).then((response) => {
+      console.log(response.data); // response.data contains if user is true or false
+    });
+  };
+
   return(
     <SafeAreaView style = {styles.container}>
       <Image source ={require('./img/foodarlogo.png')}></Image>
       <Text style = {styles.title}>Foo<Text style = {styles.dar}/*<-- changes color of the dar */>dar</Text></Text>
       <TextInput style = {styles.input}
-      placeholder = "Email"
+      placeholder = "Email" //Username
+      onChangeText={onChangeName}
       />
+
       <TextInput style = {styles.input}
       secureTextEntry = {true}
-      placeholder = "Password"/>
-      <TouchableOpacity style = {styles.login}><Text style = {styles.loginText}>Login</Text></TouchableOpacity>
+      placeholder = "Password" //Password
+      onChangeText={onChangePassword}
+      />
+
+      <TouchableOpacity style = {styles.login} onPress = {fetchUser}><Text style = {styles.loginText}>Login</Text></TouchableOpacity>
       <Text>Don't have an account? <TouchableOpacity><Text style ={styles.dar}>Sign Up</Text></TouchableOpacity></Text>
     </SafeAreaView>
   );
+  
 }
 
 const styles = StyleSheet.create({
