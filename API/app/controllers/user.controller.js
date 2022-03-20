@@ -125,7 +125,7 @@ exports.deleteAll = (req, res) => {
 exports.prove = (req,res) => {
   User.verify(new User(req.body),(err,data) => {
     if(err){
-      res.send(err);
+      res.status(404).send({message: "Username and password don't match"});
     }else
       res.send(data);
   });

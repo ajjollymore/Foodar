@@ -1,5 +1,5 @@
 /*
-defines commands sent to the sql database from controller.js
+defines commands sent to the sql database from user.controller.js
 */
 const sql = require("./db.js");
 
@@ -7,6 +7,7 @@ const sql = require("./db.js");
 const User = function(user) {
   this.name = user.name;
   this.password = user.password;
+  this.isCourier = user.isCourier;
 };
 
 User.create = (newUser, result) => {
@@ -91,7 +92,7 @@ User.remove = (id, result) => {
       return;
     }
 
-    if (res.length) {
+    if (res.affectedRows == 0) {
       // not found User with the id
       result({ kind: "not_found" }, null);
       return;
@@ -116,9 +117,8 @@ User.removeAll = result => {
 };
 User.verify = (user, result) => {
   sql.query(`SELECT * FROM users WHERE name = "${user.name}" AND password = "${user.password}"`, (err,res) =>{
-    console.log(err);
     if(!res.length){
-      result({isUser: "false"},null);
+      result(null, {isUser: "false"});
       return;
     }
   result(null, {isUser: "true"});
