@@ -1,16 +1,26 @@
 import React from 'react';
 import { Text, View, StyleSheet, Image, TouchableOpacity, ScrollView} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+class currentOrdersScreen extends React.Component {
+  render() {
+    const {navigation} = this.props;
+  }
+}
 
-const App = () => {
+export default function(props) {
+  const navigation = useNavigation();
   return(
     <View>
       <View style = {styles.arrow}>
-        <Image source = {require('./img/arrow.png')}></Image></View>
+        <TouchableOpacity onPress={() => {navigation.navigate("selectionScreen")}}>
+        <Image source = {require('../img/arrow.png')}></Image>
+        </TouchableOpacity>
+        </View>
       <Text style = {styles.title}>Current Orders</Text>
       <ScrollView>
         <View style = {styles.containerColumn}>
           <View style = {styles.containerRow}>
-            <Image source = {require('./img/timhortons.png')}></Image>
+            <Image source = {require('../img/timhortons.png')}></Image>
             <View>
               <Text>
               Pickup Time: --:--
@@ -24,7 +34,7 @@ const App = () => {
 
           <View style = {styles.seperationLine}></View>
             <View style = {styles.containerRow}>
-              <Image source = {require('./img/lazy.png')}></Image>
+              <Image source = {require('../img/lazy.png')}></Image>
               <View>
                 <Text>
                 Pickup Time: --:--
@@ -38,7 +48,7 @@ const App = () => {
             
           <View style = {styles.seperationLine}></View>
           <View style = {styles.containerRow}>
-            <Image source = {require('./img/loco.png')}></Image>
+            <Image source = {require('../img/loco.png')}></Image>
             <View>
               <Text>
               Pickup Time: --:--
@@ -52,7 +62,7 @@ const App = () => {
 
           <View style = {styles.seperationLine}></View>
           <View style = {styles.containerRow}>
-            <Image source = {require('./img/flipit.png')}></Image>
+            <Image source = {require('../img/flipit.png')}></Image>
             <View>
               <Text>
               Pickup Time: --:--
@@ -67,7 +77,7 @@ const App = () => {
         </View>
       </ScrollView>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -119,5 +129,3 @@ const styles = StyleSheet.create({
     width: 350
   }
 });
-
-export default App;

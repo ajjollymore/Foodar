@@ -1,20 +1,31 @@
 import React from 'react';
 import {Text, View, Image, StyleSheet} from 'react-native';
-
-const App = () => {
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
+class selectionScreen extends React.Component{
+  render() {
+    const {naviation} = this.props;
+  }
+}
+export default function(props) {
+  const navigation = useNavigation();
   return(
     <View>
       <Text style = {styles.title}>Would you like to...</Text>
 
       <View style = {styles.containerRow}>
         <View style = {styles.containerColumn}>
+          <TouchableOpacity onPress={() => {navigation.navigate("currentOrdersScreen")}}>
           <Text style = {styles.deliverAndOrder}>Deliver</Text>
-          <Image source = {require('./img/courier.png')}></Image>
+          <Image source = {require('../img/courier.png')}></Image>
+          </TouchableOpacity>
         </View>
 
-        <View stlye = {styles.containerColumn}>
-          <Text style = {styles.deliverAndOrder}>Order</Text>
-          <Image source = {require('./img/client.png')}></Image>
+        <View style = {styles.containerColumn}>
+          <TouchableOpacity onPress={() => {navigation.navigate("currentOrdersScreen")}}>
+            <Text style = {styles.deliverAndOrder}>Order</Text>
+            <Image source = {require('../img/client.png')}></Image>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -45,5 +56,3 @@ const styles = StyleSheet.create({
     fontSize: 30
   }
 });
-
-export default App;
