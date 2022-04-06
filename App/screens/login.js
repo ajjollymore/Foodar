@@ -3,21 +3,8 @@ import React, {useState} from 'react';
 import { Component } from 'react';
 import { Text, View, StyleSheet,SafeAreaView,TextInput, Image, TouchableOpacity} from 'react-native';
 import axios from 'axios';
-import {useNavigation} from "@react-navigation/native"
+import {useNavigation} from "@react-navigation/native";
 const baseUrl = 'http://10.0.2.2:3000';
-const fetchUser = async (name,password) => {
-    console.log("called from fetchUser",[name, password]);
-    axios.post(`${baseUrl}/api/users/verify`, {
-    name: name,
-    password: password
-    }).then((response) => {
-      console.log(response.data); // response.data contains if user is true or false
-    }).catch((error) =>{
-      console.log(error);
-    }
-    );
-  };
-
 class Login extends Component{
   render(){
   const {navigation} = this.props;
@@ -26,14 +13,29 @@ class Login extends Component{
 
 export default function(props) {
   const navigation = useNavigation();
-
-  const loginButton = () => {
-    fetchUser(name,password);
-    navigation.navigate("selectionScreen");
-  }
-
   const [name, onChangeName] = useState("");
   const [password, onChangePassword] = useState("");
+  const loginButton = () => {
+    axios.post(`${baseUrl}/api/users/verify`, {
+      name: name,
+      password: password
+    }).then((response) => {
+      const resp = response.data;
+      //log if user is true
+      console.log(resp["isUser"]);
+      //store data and change screen 
+      if(resp["isUser"] == "true"){
+        navigation.navigate("selectionScreen", 
+        {id: resp["id"]});
+        storeData(resp);
+      }
+      console.log(resp);
+    }).catch((error) =>{
+      console.log(error);
+    }
+    );
+    }
+  
   return(
     <SafeAreaView style = {styles.container}>
           <Image source ={require('../img/foodarlogo.png')}></Image>
