@@ -15,14 +15,14 @@ export default function(props) {
 
       <View style = {styles.containerRow}>
         <View style = {styles.containerColumn}>
-          <TouchableOpacity onPress={() => {navigation.navigate("currentOrdersScreen")}}>
+          <TouchableOpacity onPress={() => {navigation.navigate("currentOrdersScreenCourier")}}>
           <Text style = {styles.deliverAndOrder}>Deliver</Text>
           <Image source = {require('../img/courier.png')}></Image>
           </TouchableOpacity>
         </View>
 
         <View style = {styles.containerColumn}>
-          <TouchableOpacity onPress={() => {navigation.navigate("currentOrdersScreen")}}>
+          <TouchableOpacity onPress={() => {navigation.navigate("currentOrdersScreenClient")}}>
             <Text style = {styles.deliverAndOrder}>Order</Text>
             <Image source = {require('../img/client.png')}></Image>
           </TouchableOpacity>

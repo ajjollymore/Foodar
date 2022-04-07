@@ -1,16 +1,21 @@
 import React from 'react';
-import { Text, View, StyleSheet, Image} from 'react-native';
-
+import { Text, View, StyleSheet, Image, Touchable} from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
 const App = () => {
+  const navigation=useNavigation();
   return(
     <View>
       <View style = {styles.home}>
-        <Image source = {require('../img/home.png')}></Image></View>
-
+        <TouchableOpacity onPress={navigation.goBack  }>
+            <Image source = {require('../img/home.png')}></Image>
+          </TouchableOpacity>
+      </View>
       <View style = {styles.confirmed}>
         <Image source = {require('../img/checkmark.png')}></Image></View>
 
-      <Text style = {styles.title}>Please deliver to specified location!</Text></View>
+      <Text style = {styles.title}>Please deliver to specified location!</Text>
+      </View>
   )
 }
 

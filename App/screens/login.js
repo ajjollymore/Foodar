@@ -4,7 +4,7 @@ import { Component } from 'react';
 import { Text, View, StyleSheet,SafeAreaView,TextInput, Image, TouchableOpacity} from 'react-native';
 import axios from 'axios';
 import {useNavigation} from "@react-navigation/native";
-const baseUrl = 'http://10.0.2.2:3000';
+const baseUrl = 'https://eceipersonaltest.herokuapp.com';
 class Login extends Component{
   render(){
   const {navigation} = this.props;

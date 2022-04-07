@@ -5,10 +5,10 @@ const App = () => {
   return(
     <View>
       <View style = {styles.home}>
-        <Image source = {require('./img/home.png')}></Image></View>
+        <Image source = {require('../img/home.png')}></Image></View>
 
       <View style = {styles.confirmed}>
-        <Image source = {require('./img/checkmark.png')}></Image></View>
+        <Image source = {require('../img/checkmark.png')}></Image></View>
 
       <Text style = {styles.title}>Thank you for your order!</Text></View>
   )

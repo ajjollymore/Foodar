@@ -12,10 +12,12 @@ import {NavigationContainer} from "@react-navigation/native"
 import { createStackNavigator } from '@react-navigation/stack';
 import selectionScreen from "./screens/selectionScreenv2";
 import Login from "./screens/login";
-import currentOrdersScreen from "./screens/currentOrdersScreenv2"
+import currentOrdersScreenClient from "./screens/currentOrdersScreenv2";
+import currentOrdersScreenCourier from "./screens/currentOrdersScreenv2";
+import courierConfirmationScreen from './screens/courierConfirmationScreen';
 const baseUrl = 'https://10.0.2.2:3000';
     
-    const fetchUser = async () => {
+    const fetchUser = async (name, password) => {
       console.log([name, password]);
       axios.post(`http://10.0.2.2:3000/api/users/verify`, {
       name: name,
@@ -42,8 +44,15 @@ function NavStack(){
           name = "selectionScreen"
           component={selectionScreen}/>
         <Stack.Screen
-          name = "currentOrdersScreen"
-          component={currentOrdersScreen}/>
+          name = "currentOrdersScreenClient"
+          component={currentOrdersScreenClient}/>
+        <Stack.Screen
+          name = "currentOrdersScreenCourier"
+          component={currentOrdersScreenCourier}/>
+          <Stack.Screen
+          name = "courierConfirmationScreen"
+          component={courierConfirmationScreen}
+          />
       </Stack.Navigator>
   );
 }
