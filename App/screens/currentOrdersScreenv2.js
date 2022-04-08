@@ -2,7 +2,7 @@ import React,{useState, useEffect} from 'react';
 import { Text, View, StyleSheet, Image, TouchableOpacity, ScrollView} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
-const baseUrl = 'https://eceipersonaltest.herokuapp.com';
+const baseUrl = 'http://192.168.29.36:5000';//https://eceipersonaltest.herokuapp.com
 var resp;
 class currentOrdersScreen extends React.Component {
   render() {
@@ -50,8 +50,8 @@ export default function(props) {
     const deliver = (receiptnum) => {
       console.log(receiptnum);
       axios.delete(`${baseUrl}/api/table`, {
-        receiptnum: `${receiptnum}`
-      }).then(navigation.navigate('courierConfirmationScreen')).catch(err => {console.log(err)});
+        receiptnum: receiptnum
+      }).then((res) =>{console.log(res.data)});
     }
     //boilerplate for each Location
       return(
@@ -66,7 +66,7 @@ export default function(props) {
                 Drop Off: {element.dropoff} Hall
               </Text>
             </View>
-            <TouchableOpacity style = {styles.deliver} onPress ={axios.delete(`${baseUrl}/api/table`,{receiptnum: element.receiptnum}).then(navigation.navigate('courierConfirmationScreen')).catch(err => {console.log(err)})}><Text style = {styles.deliverText}>Deliver</Text></TouchableOpacity>
+            <TouchableOpacity style = {styles.deliver} onPress ={() => {deliver(element.receiptnum)}}><Text style = {styles.deliverText}>Deliver</Text></TouchableOpacity>
           </View>
           <View style = {styles.seperationLine}/>
         </View>

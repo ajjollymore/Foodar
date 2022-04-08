@@ -110,10 +110,16 @@ const styles = StyleSheet.create({
       fontSize:14
   },
   email_img: {
-    flex: 1,
+    flex: 0,
     flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+
   },
   pass_img: {
-
+    flex: 0,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
