@@ -40,19 +40,22 @@ export default function(props) {
     <SafeAreaView style = {styles.container}>
           <Image source ={require('../img/foodarlogo.png')}></Image>
           <Text style = {styles.title}>Foo<Text style = {styles.dar}/*<-- changes color of the dar */>dar</Text></Text>
+          
+          <View style = {styles.email_img}><Image source ={require('../img/email.png')}></Image>
           <TextInput style = {styles.input}
           placeholder = "Email" //Username  
           onChangeText={onChangeName}
-          />
+          /></View>
 
+          <View style = {styles.pass_img}><Image source ={require('../img/password.png')}></Image>
           <TextInput style = {styles.input}
           secureTextEntry = {true}
           placeholder = "Password" //Password
           onChangeText={onChangePassword}
-          />
+          /></View>
 
           <TouchableOpacity style = {styles.login} onPress = {loginButton} ><Text style = {styles.loginText}>Login</Text></TouchableOpacity>
-          <Text>Don't have an account? <TouchableOpacity><Text style ={styles.dar}>Sign Up</Text></TouchableOpacity></Text>
+          <Text>Don't have an account? <TouchableOpacity><Text style ={styles.sign_up}>Sign Up</Text></TouchableOpacity></Text>
         </SafeAreaView>
   );
 }
@@ -63,6 +66,15 @@ const styles = StyleSheet.create({
     color: '#FF000090',
     opacity: 50,
     
+  },
+  sign_up: {
+    //color: #rrggbbaa
+    color: '#FF000090',
+    opacity: 50,
+    transform : [
+      {translateY: 4},
+      {translateX: 3},
+    ],
   },
   login: {
     backgroundColor: "#FF000090",
@@ -96,5 +108,12 @@ const styles = StyleSheet.create({
       padding: 10,
       borderRadius:100,
       fontSize:14
+  },
+  email_img: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  pass_img: {
+
   }
 });
