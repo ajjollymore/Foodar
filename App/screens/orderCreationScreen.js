@@ -40,7 +40,9 @@ const App = ({route}) => {
   }
 
 return (
-  <SafeAreaView style = {styles.container}>
+  <SafeAreaView>
+    <ScrollView>
+      <View style = {styles.container}>
     <View>
     <Text style = {styles.title}>Foo<Text style = {styles.dar}/*<-- changes color of the dar */>dar</Text></Text>
     </View>
@@ -66,7 +68,9 @@ return (
       style = {styles.input}
       onChangeText = {setRes}
     />
-    <TouchableOpacity style = {styles.order} onPress = {createOrder}><Text style = {styles.orderText}>Delivery</Text></TouchableOpacity>
+    <TouchableOpacity style = {styles.order} onPress = {createOrder}><Text style = {styles.orderText}>Place</Text></TouchableOpacity>
+    </View>
+    </ScrollView>
   </SafeAreaView>
 );
 }
