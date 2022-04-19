@@ -2,7 +2,7 @@ import React,{useState, useEffect} from 'react';
 import { Text, View, StyleSheet, Image, TouchableOpacity, ScrollView} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
-const baseUrl = 'http://192.168.29.36:5000';//https://eceipersonaltest.herokuapp.com
+const baseUrl = 'https://eceipersonaltest.herokuapp.com';//http://10.0.2.2:5000
 var resp;
 class currentOrdersScreen extends React.Component {
   render() {
@@ -49,7 +49,7 @@ export default function(props) {
     }
     const deliver = (receiptnum) => {
       console.log(receiptnum);
-      axios.delete(`${baseUrl}/api/table`, {
+      axios.delete(`${baseUrl}/api/table/${receiptnum}`, {
         receiptnum: receiptnum
       }).then((res) =>{console.log(res.data)});
     }

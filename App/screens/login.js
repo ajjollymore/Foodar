@@ -38,16 +38,16 @@ export default function(props) {
   
   return(
     <SafeAreaView style = {styles.container}>
-          <Image source ={require('../img/foodarlogo.png')}></Image>
+          <Image source ={require('../img/foodarlogo.png')}/>
           <Text style = {styles.title}>Foo<Text style = {styles.dar}/*<-- changes color of the dar */>dar</Text></Text>
           
-          <View style = {styles.email_img}><Image source ={require('../img/email.png')}></Image>
+          <View style = {styles.email_img}><Image source ={require('../img/email.png')}/>
           <TextInput style = {styles.input}
           placeholder = "Email" //Username  
           onChangeText={onChangeName}
           /></View>
 
-          <View style = {styles.pass_img}><Image source ={require('../img/password.png')}></Image>
+          <View style = {styles.pass_img}><Image source ={require('../img/password.png')}/>
           <TextInput style = {styles.input}
           secureTextEntry = {true}
           placeholder = "Password" //Password
@@ -65,7 +65,6 @@ const styles = StyleSheet.create({
     //color: #rrggbbaa
     color: '#FF000090',
     opacity: 50,
-    
   },
   sign_up: {
     //color: #rrggbbaa

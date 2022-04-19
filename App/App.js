@@ -8,13 +8,14 @@
 import React, {useState} from 'react';
 import { Text, View, StyleSheet,SafeAreaView,TextInput, Image, TouchableOpacity} from 'react-native';
 import axios from 'axios';
-import {NavigationContainer} from "@react-navigation/native"
+import {NavigationContainer, StackActions} from "@react-navigation/native"
 import { createStackNavigator } from '@react-navigation/stack';
 import selectionScreen from "./screens/selectionScreenv2";
 import Login from "./screens/login";
-import currentOrdersScreenClient from "./screens/currentOrdersScreenv2";
+import currentOrdersScreenClient from "./screens/currentOrdersScreenClient";
 import currentOrdersScreenCourier from "./screens/currentOrdersScreenv2";
 import courierConfirmationScreen from './screens/courierConfirmationScreen';
+import orderCreationScreen from './screens/orderCreationScreen';
 const baseUrl = 'https://10.0.2.2:3000';
     
     const fetchUser = async (name, password) => {
@@ -43,6 +44,10 @@ function NavStack(){
         <Stack.Screen
           name = "selectionScreen"
           component={selectionScreen}/>
+                    <Stack.Screen
+          name = "orderCreationScreen"
+          component={orderCreationScreen}
+          />
         <Stack.Screen
           name = "currentOrdersScreenClient"
           component={currentOrdersScreenClient}/>

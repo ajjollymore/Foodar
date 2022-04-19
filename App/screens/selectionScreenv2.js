@@ -7,12 +7,11 @@ class selectionScreen extends React.Component{
     const {naviation} = this.props;
   }
 }
-export default function(props) {
+export default function({route}) {
   const navigation = useNavigation();
   return(
     <View>
       <Text style = {styles.title}>Would you like to...</Text>
-
       <View style = {styles.containerRow}>
         <View style = {styles.containerColumn}>
           <TouchableOpacity onPress={() => {navigation.navigate("currentOrdersScreenCourier")}}>
@@ -22,7 +21,7 @@ export default function(props) {
         </View>
 
         <View style = {styles.containerColumn}>
-          <TouchableOpacity onPress={() => {navigation.navigate("currentOrdersScreenClient")}}>
+          <TouchableOpacity onPress={() => {navigation.navigate("currentOrdersScreenClient",{id : route.params.id})}}>
             <Text style = {styles.deliverAndOrder}>Order</Text>
             <Image source = {require('../img/client.png')}></Image>
           </TouchableOpacity>

@@ -4,22 +4,19 @@ export default function App(){
 return (
 <SafeAreaView>
 <View style = {styles.arrow}>
-        <Image source = {require('./img/arrow.png')}></Image></View>
+        <Image source = {require('../img/arrow.png')}></Image></View>
 
 
 <Text style = {styles.title}>Find your Delicious Food</Text>
 <View style = {styles.containerRows}>
-<Image source = {require('./img/flipit.png')}></Image>
-<Image source = {require('./img/pitapit.png')}></Image></View>
+<Image source = {require('../img/flipit.png')}></Image>
+</View>
 <View style = {styles.containerRows}>
-<Image source = {require('./img/timhortons.png')}></Image>
-<Image source = {require('./img/lazy.png')}></Image></View>
+<Image source = {require('../img/timhortons.png')}></Image>
+<Image source = {require('../img/lazy.png')}></Image></View>
 <View style = {styles.loco}>
+        <Image source = {require('../img/loco3.png')}></Image></View>
 
-        <Image source = {require('./img/loco3.png')}></Image></View>
-
-<View style = {styles.boosterjuice}>
-        <Image source = {require('./img/boosterjuice.png')}></Image></View>
 
 
 

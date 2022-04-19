@@ -1,127 +1,69 @@
+import { useNavigation } from '@react-navigation/native';
+import { TestScheduler } from 'jest';
 import React from 'react';
 import { Text, View, StyleSheet, SafeAreaView, TextInput, Image, TouchableOpacity, ScrollView} from 'react-native';
 
-const orderBox = (time, hall,location) => {
-  var myPicture;
-  switch(location){
-    case'flipit':
-      myPicture = require('../img/flipit.png');
-      break;
-    case'lazy':
-      myPicture = require('../img/lazy.png');
-      break;
-    case'loco':
-     myPicture = require('../img/loco.png');
-      break;
-    case'timhortons':
-      myPicture = require('../img/timhortons.png');
-      break;
-  }
-  return( 
-    <View>
-    <View style = {styles.containerRow}>
-    <Image source = {myPicture}></Image>
-    <View>
-      <Text>
-      Time: {time}
-      </Text>
-      <Text>
-      Drop Off: {hall} Hall
-      </Text>
-    </View>
-    <TouchableOpacity style = {styles.deliver}><Text style = {styles.deliverText}>Deliver</Text></TouchableOpacity>
-  </View>
-  <View style = {styles.seperationLine}/>
-  </View>
-  );
-}
-const App = () => {
+
+const App = ({route}) => {
+  const navigation = useNavigation();
   return(
-    <View>
-    <Text style = {styles.title}>Current Orders</Text>
-      <ScrollView>
-        <View style = {styles.containerColumn}>
-          {orderBox('--:--','Victoria','lazy')}
+    <SafeAreaView style= {styles.container}>
+      <Text style = {styles.title}>Foo<Text style = {styles.dar}/*<-- changes color of the dar */>dar</Text></Text>
+      <Text style = {styles.subtitle}>Client</Text>
+      <View style = {styles.location}>
+        <TouchableOpacity style={styles.button} onPress = {() => {navigation.navigate("orderCreationScreen", {
+          paramKey: 'lazy',
+          id: route.params.id
+        })}}><Image source={require('../img/lazy.png')}></Image></TouchableOpacity>
 
-          <View style = {styles.seperationLine}></View>
+        <TouchableOpacity style={styles.button} onPress = {() => {navigation.navigate("orderCreationScreen", {
+          paramKey: 'loco'
+        })}}><Image source={require('../img/loco.png')}></Image></TouchableOpacity>
 
-          <View style = {styles.containerRow}>
-            <Image source = {require('../img/flipit.png')}></Image>
-            <View>
-              <Text>
-              Time: --:--
-              </Text>
-              <Text>
-              Drop Off: ---- Hall
-              </Text>
-              <TouchableOpacity style = {styles.deliver}><Text style = {styles.deliverText}>Deiver</Text></TouchableOpacity>
-            </View>
-           
-          </View>
+        <TouchableOpacity style={styles.button} onPress = {() => {navigation.navigate("orderCreationScreen", {
+          paramKey: 'timhortons'
+        })}}><Image source={require('../img/timhortons.png')}></Image></TouchableOpacity>
 
-          <View style = {styles.seperationLine}></View>
-
-          <View style = {styles.containerRow}>
-            <Image source = {require('../img/lazy.png')}></Image>
-            <View>
-              <Text>
-              Time: --:--
-              </Text>
-              <Text>
-              Drop Off: ---- Hall
-              </Text>
-            </View>
-            <TouchableOpacity style = {styles.deliver}><Text style = {styles.deliverText}>Deliver</Text></TouchableOpacity>
-          </View>
-        </View>
-      </ScrollView>
-      
-    </View>
+        <TouchableOpacity style={styles.button} onPress = {() => {navigation.navigate("orderCreationScreen", {
+          paramKey: 'flipit'
+        })}}><Image source={require('../img/flipit.png')}></Image></TouchableOpacity>
+      </View>
+    </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
+  subtitle:{
+    fontSize: 30,
+    fontFamily: "sans-serif",
+  },
+  button:{
+    justifyContent:'center',
+    alignItems:'center',
+    width: 180,
+    height: 180,
+    padding:45,
+    margin:5,
+    borderWidth:1,
+    borderColor: '#00000006'
+  },
+  location: {
+    flexWrap:'wrap',
+    flexDirection:'row',
+  },
+  container: {
+    flex: 1,
+    alignItems: 'center',
+  },
   title: {
-    fontSize: 30
+    fontSize: 64,
+    fontFamily: "sans-serif",
   },
-
-  containerRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    height: 100,
-    width: 400
-  },
-
-  containerColumn: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  deliver: {
-    backgroundColor: "#FF000090",
-    marginTop:10,
-    marginBottom: 10,
-    height: 50,
-    width: 90,
-    borderRadius: 100,
-    alignItems: 'center',
-    padding: 14, 
-  },
-  deliverText: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: '#FF'
-  },
-  seperationLine: {
-    backgroundColor: '#000000',
-    height: 2,
-    width: 400
-  },
-  addButton: {
-    backgroundColor: 'FF000090',
-    justifyContent: 'center',
-    alignItems: 'center'
+  dar: {
+    //color: #rrggbbaa
+    color: '#FF000090',
+    opacity: 50,
+    
   }
 });
 
