@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react';
-import { Text, View, StyleSheet, Image, TouchableOpacity, ScrollView} from 'react-native';
+import { Text, View, StyleSheet, Image, TouchableOpacity, ScrollView,SafeAreaView} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 const baseUrl = 'https://eceipersonaltest.herokuapp.com';//http://10.0.2.2:5000
@@ -76,7 +76,7 @@ export default function(props) {
   }
   //boilerplate for the rest
   return(
-    <View>
+    <SafeAreaView>
       <View style = {styles.arrow}>
         <TouchableOpacity onPress={() => {navigation.goBack()}}>
           <Image source = {require('../img/arrow.png')}></Image>
@@ -93,7 +93,7 @@ export default function(props) {
       <View  style ={{justifyContent:'center',alignItems:'center'}}>
       <TouchableOpacity style = {styles.myOrders}><Text style = {styles.loginText}>My Orders</Text></TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 //old code(unused)
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
   myOrders: {
     backgroundColor: "#90455090",
     marginTop:10,
-    marginBottom: 10,
+    marginBottom: "-10%",
     height: 50,
     width: 184,
     borderRadius: 100,
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
   loginText: {
     fontSize: 15,
     fontWeight: 'bold',
-    color: '#FFFFFF'
+    color: '#FFFFFF',
   },
   title: {
     fontSize: 30,
