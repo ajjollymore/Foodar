@@ -15,6 +15,7 @@ import Login from "./screens/login";
 import currentOrdersScreenClient from "./screens/currentOrdersScreenClient";
 import currentOrdersScreenCourier from "./screens/currentOrdersScreenv2";
 import courierConfirmationScreen from './screens/courierConfirmationScreen';
+import customerConfirmationScreen from './screens/customerConfirmationScreen'
 import orderCreationScreen from './screens/orderCreationScreen';
 const baseUrl = 'https://10.0.2.2:3000';
     
@@ -57,6 +58,10 @@ function NavStack(){
           <Stack.Screen
           name = "courierConfirmationScreen"
           component={courierConfirmationScreen}
+          />          
+          <Stack.Screen
+          name = "customerConfirmationScreen"
+          component={customerConfirmationScreen}
           />
       </Stack.Navigator>
   );

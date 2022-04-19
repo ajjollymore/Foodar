@@ -6,6 +6,7 @@ import axios from 'axios';
 const baseUrl = 'https://eceipersonaltest.herokuapp.com';
 
 const App = ({route}) => {
+  const navigation = useNavigation();
   const [hours, setHours] = useState(0);
   const [mins, setMins] = useState(0);
   const [orderNum, setOrderNum] = useState("");
@@ -33,6 +34,7 @@ const App = ({route}) => {
       dropoff: `${res}`,
       receiptnum: `${orderNum}`
     }).then((res) => {
+      navigation.navigate("customerConfirmationScreen")
     }
     )
   }
