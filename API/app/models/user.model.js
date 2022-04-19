@@ -118,6 +118,7 @@ User.removeAll = result => {
 User.verify = (user, result) => {
   sql.query(`SELECT * FROM users WHERE name = "${user.name}" AND password = "${user.password}"`, (err,res) =>{
     if(!res.length){
+      console.log(res);
       result(null, {isUser: "false"});
       return;
     }
