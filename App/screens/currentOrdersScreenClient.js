@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 30,
-    marginTop: 10,
+    marginTop: 0,
     marginLeft: 25
   },
   subtitle:{
@@ -69,16 +69,15 @@ const styles = StyleSheet.create({
     borderColor: '#00000006'
   },
   location: {
+    marginTop:'15%',
+    padding:'2%',
+    justifyContent: 'center',
+    alignItems: 'center',
     flexWrap:'wrap',
     flexDirection:'row',
   },
   container: {
     flex: 1,
-    alignItems: 'center',
-  },
-  title: {
-    fontSize: 64,
-    fontFamily: "sans-serif",
   },
   dar: {
     //color: #rrggbbaa

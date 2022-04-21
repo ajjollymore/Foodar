@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 350
   },
-
+  
   containerColumn: {
     justifyContent: 'center',
     alignItems: 'center',
