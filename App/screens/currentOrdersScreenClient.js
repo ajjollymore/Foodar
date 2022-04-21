@@ -1,8 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
-import { TestScheduler } from 'jest';
 import React from 'react';
 import { Text, View, StyleSheet, SafeAreaView, TextInput, Image, TouchableOpacity, ScrollView} from 'react-native';
-
 
 const App = ({route}) => {
   const navigation = useNavigation();
@@ -15,28 +13,28 @@ const App = ({route}) => {
         </View>
       <Text style = {styles.title}>Find your Delicious Food</Text>
       <View style = {styles.location}>
-        <TouchableOpacity style={styles.button} onPress = {() => {navigation.navigate("orderCreationScreen", {
+        <TouchableOpacity style={[styles.button, styles.shadow]} onPress = {() => {navigation.navigate("orderCreationScreen", {
           paramKey: 'lazy',
           id: route.params.id
         })}}><Image source={require('../img/lazy.png')}></Image></TouchableOpacity>
 
-        <TouchableOpacity style={styles.button} onPress = {() => {navigation.navigate("orderCreationScreen", {
+        <TouchableOpacity style={[styles.button, styles.shadow]} onPress = {() => {navigation.navigate("orderCreationScreen", {
           paramKey: 'loco'
         })}}><Image source={require('../img/loco3.png')}></Image></TouchableOpacity>
 
-        <TouchableOpacity style={styles.button} onPress = {() => {navigation.navigate("orderCreationScreen", {
+        <TouchableOpacity style={[styles.button, styles.shadow]} onPress = {() => {navigation.navigate("orderCreationScreen", {
           paramKey: 'timhortons'
         })}}><Image source={require('../img/timhortons.png')}></Image></TouchableOpacity>
 
-        <TouchableOpacity style={styles.button} onPress = {() => {navigation.navigate("orderCreationScreen", {
+        <TouchableOpacity style={[styles.button, styles.shadow]} onPress = {() => {navigation.navigate("orderCreationScreen", {
           paramKey: 'flipit'
         })}}><Image source={require('../img/flipit.png')}></Image></TouchableOpacity>
 
-        <TouchableOpacity style={styles.button} onPress = {() => {navigation.navigate("orderCreationScreen", {
+        <TouchableOpacity style={[styles.button, styles.shadow]} onPress = {() => {navigation.navigate("orderCreationScreen", {
                   paramKey: 'boosterjuice'
         })}}><Image source={require('../img/boosterjuice.png')}></Image></TouchableOpacity>
         
-        <TouchableOpacity style={styles.button} onPress = {() => {navigation.navigate("orderCreationScreen", {
+        <TouchableOpacity style={[styles.button, styles.shadow]} onPress = {() => {navigation.navigate("orderCreationScreen", {
           paramKey: 'pitapit'
         })}}><Image source={require('../img/pitapit.png')}></Image></TouchableOpacity>
       </View>
@@ -45,6 +43,13 @@ const App = ({route}) => {
 }
 
 const styles = StyleSheet.create({
+  shadow: {
+    shadowColor: 'black',
+    shadowOffset: {width: -2, height: 4},
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    elevation: 2
+  },
   arrow: {
     marginTop: 20,
     marginLeft: 20
@@ -65,8 +70,9 @@ const styles = StyleSheet.create({
     height: '30%',
     padding:"5%",
     margin:"1%",
-    borderWidth:1,
-    borderColor: '#00000006'
+    borderColor: '#00000006',
+    backgroundColor: 'white',
+    borderRadius: 8,
   },
   location: {
     marginTop:'15%',
