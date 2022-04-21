@@ -51,7 +51,7 @@ export default function(props) {
       console.log(receiptnum);
       axios.delete(`${baseUrl}/api/table/${receiptnum}`, {
         receiptnum: receiptnum
-      }).then((res) =>{console.log(res.data)});
+      }).then((res) =>{navigation.navigate("courierConfirmationScreen")});
     }
     //boilerplate for each Location
       return(

@@ -49,6 +49,8 @@ return (
     <View>
       <Text style={styles.text}>When Should We Get Your Food?</Text>
       <TimePicker
+        zeroPadding = {true}
+        minutesInterval={5}
         onChange={(hours, minutes) => {
           setHours(hours);
           setMins(minutes);
