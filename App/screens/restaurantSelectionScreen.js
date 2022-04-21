@@ -7,7 +7,7 @@ return (
         <Image source = {require('../img/arrow.png')}></Image></View>
 
 
-<Text style = {styles.title}>Find your Delicious Food</Text>
+<Text style = {styles.title}>Where did you order from?</Text>
 <View style = {styles.containerRows}>
 <Image source = {require('../img/flipit.png')}></Image>
 </View>

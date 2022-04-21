@@ -44,9 +44,6 @@ return (
     <ScrollView>
       <View style = {styles.container}>
     <View>
-    <Text style = {styles.title}>Foo<Text style = {styles.dar}/*<-- changes color of the dar */>dar</Text></Text>
-    </View>
-    <View>
       <Text style={styles.text}>When Should We Get Your Food?</Text>
       <TimePicker
         zeroPadding = {true}
