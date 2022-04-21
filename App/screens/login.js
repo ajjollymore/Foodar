@@ -55,7 +55,7 @@ export default function(props) {
           /></View>
 
           <TouchableOpacity style = {styles.login} onPress = {loginButton} ><Text style = {styles.loginText}>Login</Text></TouchableOpacity>
-          <Text>Don't have an account? <TouchableOpacity><Text style ={styles.sign_up}>Sign Up</Text></TouchableOpacity></Text>
+          <Text style = {styles.black}>Don't have an account? <TouchableOpacity><Text style ={styles.sign_up}>Sign Up</Text></TouchableOpacity></Text>
         </SafeAreaView>
   );
 }
@@ -85,6 +85,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 14, 
   },
+  black: {
+    color: '#000000'
+  },
   loginText: {
     fontSize: 15,
     fontWeight: 'bold',
@@ -92,6 +95,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 64,
+    color: '#000000',
     fontFamily: "sans-serif"
   },
   container: {

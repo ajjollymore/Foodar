@@ -36,7 +36,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     textAlign: 'center',
     fontSize: 30,
-    marginTop: 275
+    marginTop: 275,
+    color: '#000000'
   },
 
   containerRow: {
@@ -52,6 +53,7 @@ const styles = StyleSheet.create({
   },
 
   deliverAndOrder: {
-    fontSize: 30
+    fontSize: 30,
+    color: '#000000'
   }
 });
